@@ -100,7 +100,7 @@ export default function Navbar() {
                   startIcon={<PersonAddAlt1Icon />}
                   className="!rounded-xl"
                   sx={{
-                    bgcolor: '#27AE60',
+                    bgcolor: 'rgba(64, 181, 173, 1)',
                     width: 110,
                     height: 48,
                     px: 0,
