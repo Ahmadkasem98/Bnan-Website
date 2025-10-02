@@ -69,7 +69,7 @@ const contactSlice = createSlice({
         state.isSubmitting = false;
         state.submitStatus = "success";
         state.submitMessage = action.payload.message;
-       
+
         state.formData = {
           firstName: "",
           lastName: "",
