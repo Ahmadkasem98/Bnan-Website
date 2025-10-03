@@ -11,6 +11,7 @@ import { GlobalStudentsIcon, ArrowLeftIcon } from "../components/AllIcons";
 import screen5 from "../assets/screen5.jpg";
 import screen6 from "../assets/screen6.jpg";
 import PublicIcon from "@mui/icons-material/Public";
+import { typography } from "../styles/typography";
 
 export default function AboutBanan() {
   return (
@@ -134,8 +135,8 @@ export default function AboutBanan() {
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Box
                   sx={{
-                    width: "6px",
-                    height: "6px",
+                    width: "5px",
+                    height: "5px",
                     backgroundColor: "#146BA6",
                     borderRadius: "50%",
                     //   mr: 0.75,
@@ -143,24 +144,25 @@ export default function AboutBanan() {
                 />
                 <Box
                   sx={{
-                    height: "2px",
+                    height: "1.3px",
                     width: "36px",
                     backgroundColor: "#146BA6",
                     borderRadius: "4px",
                   }}
                 />
               </Box>
-              <Typography
-                variant="overline"
-                sx={{ color: "#146BA6", fontWeight: 600, fontSize:"0.80rem" }}
-              >
+              <Typography variant="overline" sx={{ ...typography.title }}>
                 عن بنان
               </Typography>
             </Stack>
 
             <Typography
               variant="h5"
-              sx={{ fontWeight: 800, mb: 1, textAlign: "right", fontSize: "1.5rem" }}
+              sx={{
+                mb: 1,
+                textAlign: 'right',
+                ...typography.subTitle,
+              }}
             >
               حول منصة بنان التعليمية
             </Typography>
@@ -168,8 +170,8 @@ export default function AboutBanan() {
             {/* Paragraph 1 */}
             <Typography
               variant="body2"
-            //   color="text.secondary"
-              sx={{ mb: 1.5, lineHeight: 1.9, textAlign: "right" }}
+              //   color="text.secondary"
+              sx={{ mb: 1.5, ...typography.description }}
             >
               منصتنــا الرقميــة التعليميــة هي مساحـة متكاملة صممت خصيصًا
               للأطفال والمراهقين الصم لتقديم تجربــة تعليميــة غنيــة وممتعة.
@@ -182,8 +184,8 @@ export default function AboutBanan() {
             {/* Paragraph 2 */}
             <Typography
               variant="body2"
-            //   color="text.secondary"
-              sx={{ mb: 2, lineHeight: 1.9, textAlign: "right" }}
+              //   color="text.secondary"
+              sx={{ mb: 2, ...typography.description }}
             >
               نهدف لأن تكون المنصة جسـرًا رقميًـا ملهمًـا، يمكّن الأطفـــال
               والمراهقين من استكشاف عالــم لغــة الإشارة بطريقـة شيّقة،

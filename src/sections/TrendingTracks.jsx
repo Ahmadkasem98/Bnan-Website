@@ -15,6 +15,8 @@ import ChildCareIcon from "@mui/icons-material/ChildCare";
 import trending1 from "../assets/trending1.jpg";
 import trending2 from "../assets/trending2.jpg";
 import trending3 from "../assets/trending3.jpg";
+import { typography } from "../styles/typography";
+import { GlobalStudentsIcon, ArrowLeftIcon } from "../components/AllIcons";
 
 const items = [
   {
@@ -87,7 +89,9 @@ function Meta({ icon, text }) {
 
 export default function TrendingTracks() {
   return (
-    <Box sx={{ py: 8, backgroundColor: "rgba(230, 238, 247, 1)", marginTop: 5 }}>
+    <Box
+      sx={{ py: 8, backgroundColor: "rgba(230, 238, 247, 1)", marginTop: 5, width: '100vw', ml: 'calc(50% - 50vw)', mr: 'calc(50% - 50vw)' }}
+    >
       <Container maxWidth="lg">
         {/* Header */}
         <Stack
@@ -98,8 +102,8 @@ export default function TrendingTracks() {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box
               sx={{
-                width: 6,
-                height: 6,
+                width: "5px",
+                height: "5px",
                 backgroundColor: "#146BA6",
                 borderRadius: "50%",
                 // mr: 0.75,
@@ -107,23 +111,20 @@ export default function TrendingTracks() {
             />
             <Box
               sx={{
-                height: "2px",
+                height: "1.3px",
                 width: 36,
                 backgroundColor: "#146BA6",
                 borderRadius: "4px",
               }}
             />
           </Box>
-          <Typography
-            variant="overline"
-            sx={{ color: "#146BA6", fontWeight: 600, fontSize:"0.80rem" }}
-          >
+          <Typography variant="overline" sx={{ ...typography.title }}>
             مسارات رائجة
           </Typography>
         </Stack>
         <Typography
           variant="h5"
-          sx={{ fontWeight: 800, textAlign: "center", mb: 4, fontSize: "1.5rem" }}
+          sx={{ ...typography.subTitle, textAlign: "center", mb: 4 }}
         >
           المسارات الأكثر طلبًا
         </Typography>
@@ -140,8 +141,8 @@ export default function TrendingTracks() {
                   transition: "all 0.3s ease",
                   "&:hover": {
                     transform: "translateY(-5px)",
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
-                  }
+                    boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+                  },
                 }}
                 elevation={1}
               >
@@ -167,13 +168,13 @@ export default function TrendingTracks() {
                   >
                     <Typography
                       variant="subtitle2"
-                      sx={{ 
-                        fontFamily: 'Montserrat Arabic, Tajawal, system-ui',
+                      sx={{
+                        fontFamily: "Montserrat Arabic, Tajawal, system-ui",
                         fontWeight: 600,
-                        fontSize: '15px',
+                        fontSize: "15px",
                         lineHeight: 1.0,
                         letterSpacing: 0,
-                        textAlign: 'right'
+                        textAlign: "right",
                       }}
                     >
                       {it.title}
@@ -193,15 +194,15 @@ export default function TrendingTracks() {
                     <Button
                       fullWidth
                       variant="contained"
-                      startIcon={<ArrowBackIosNewIcon sx={{ fontSize: 16 }} />}
+                      startIcon={<ArrowLeftIcon sx={{ fontSize: 16 }} />}
                       sx={{
                         backgroundColor: "#146BA6",
                         py: 1.1,
                         borderRadius: "8px",
                         transition: "all 0.3s ease",
-                        "&:hover": { 
+                        "&:hover": {
                           backgroundColor: "#0f588a",
-                          transform: "scale(1.02)"
+                          transform: "scale(1.02)",
                         },
                       }}
                     >

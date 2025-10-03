@@ -2,6 +2,7 @@ import { Box, Container, Typography, Paper, Stack, Link } from "@mui/material";
 import storage1 from "../assets/storage1.jpg";
 import storage2 from "../assets/storage2.png";
 import storage3 from "../assets/storage3.png";
+import { typography } from "../styles/typography";
 
 const posts = [
   {
@@ -39,31 +40,33 @@ export default function Blog() {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box
               sx={{
-                width: 6,
-                height: 6,
+                width: "5px",
+                height: "5px",
                 backgroundColor: "#146BA6",
                 borderRadius: "50%",
+                // mr: 0.75,
               }}
             />
             <Box
               sx={{
-                height: "2px",
+                height: "1px",
                 width: 36,
                 backgroundColor: "#146BA6",
                 borderRadius: "4px",
               }}
             />
           </Box>
-          <Typography
-            variant="overline"
-            sx={{ color: "#146BA6", fontWeight: 600, fontSize:"0.80rem" }}
-          >
+          <Typography variant="overline" sx={{ ...typography.title }}>
             المدونة
           </Typography>
         </Stack>
         <Typography
           variant="h5"
-          sx={{ fontWeight: 800, textAlign: "center", mb: 1.5, fontSize: "1.5rem" }}
+          sx={{
+            ...typography.subTitle,
+            textAlign: "center",
+            mb: 1.5,
+          }}
         >
           عالم من المقالات
         </Typography>
@@ -94,8 +97,8 @@ export default function Blog() {
                 transition: "all 0.3s ease",
                 "&:hover": {
                   transform: "translateY(-8px)",
-                  boxShadow: "0 15px 35px rgba(0,0,0,0.1)"
-                }
+                  boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
+                },
               }}
             >
               <Box sx={{ height: 200, overflow: "hidden" }}>

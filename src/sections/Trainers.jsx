@@ -2,6 +2,7 @@ import { Box, Container, Typography, Grid, Paper, Stack } from "@mui/material";
 import trainer1 from "../assets/trainer1.jpg";
 import trainer2 from "../assets/trainer2.jpg";
 import trainer3 from "../assets/trainer3.jpg";
+import { typography } from "../styles/typography";
 
 const trainers = [
   { name: "اسم المدرب الكامل", role: "مدرب في علوم البيئة", image: trainer3 },
@@ -20,33 +21,31 @@ export default function Trainers() {
           sx={{ alignItems: "center", justifyContent: "center", mb: 1 }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box
-              sx={{
-                width: 6,
-                height: 6,
-                backgroundColor: "#146BA6",
-                borderRadius: "50%",
-              }}
-            />
-            <Box
-              sx={{
-                height: "2px",
-                width: 36,
-                backgroundColor: "#146BA6",
-                borderRadius: "4px",
-              }}
-            />
-          </Box>
-          <Typography
-            variant="overline"
-            sx={{ color: "#146BA6", fontWeight: 600, fontSize:"0.80rem" }}
-          >
+                <Box
+                  sx={{
+                    width: "5px",
+                    height: "5px",
+                    backgroundColor: "#146BA6",
+                    borderRadius: "50%",
+                    //   mr: 0.75,
+                  }}
+                />
+                <Box
+                  sx={{
+                    height: "1.3px",
+                    width: "36px",
+                    backgroundColor: "#146BA6",
+                    borderRadius: "4px",
+                  }}
+                />
+              </Box>
+          <Typography variant="overline" sx={{ ...typography.title }}>
             مدربو المسارات
           </Typography>
         </Stack>
         <Typography
           variant="h5"
-          sx={{ fontWeight: 800, textAlign: "center", mb: 4, fontSize: "1.5rem" }}
+          sx={{ ...typography.subTitle, textAlign: "center", mb: 4 }}
         >
           أبرز المدربين لدى بنان
         </Typography>
@@ -60,16 +59,16 @@ export default function Trainers() {
                   borderRadius: 0.3,
                   overflow: "hidden",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
-                  backgroundColor: 'transparent',
+                  backgroundColor: "transparent",
                   transition: "all 0.3s ease",
                   "&:hover": {
                     transform: "translateY(-8px)",
-                    boxShadow: "0 15px 35px rgba(0,0,0,0.1)"
-                  }
+                    boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
+                  },
                 }}
               >
                 {/* Trainer image */}
-                <Box sx={{ position: 'relative' }}>
+                <Box sx={{ position: "relative" }}>
                   <img
                     src={t.image}
                     alt={t.name}
@@ -88,11 +87,11 @@ export default function Trainers() {
                     py: 1.5,
                     backgroundColor: "#ffffff",
                     borderRadius: 0.2,
-                    width: '90%',
-                    mx: 'auto',
-                    position: 'relative',
+                    width: "90%",
+                    mx: "auto",
+                    position: "relative",
                     top: -16,
-                    boxShadow: '0 6px 16px rgba(0,0,0,0.08)',
+                    boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
                   }}
                 >
                   <Typography

@@ -15,49 +15,57 @@ import {
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PhoneInTalkOutlinedIcon from "@mui/icons-material/PhoneInTalkOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import { useSelector, useDispatch } from 'react-redux'
-import { updateField, submitContactForm, clearForm, resetSubmitStatus } from '../store/slices/contactSlice'
-import { useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux";
+import {
+  updateField,
+  submitContactForm,
+  clearForm,
+  resetSubmitStatus,
+} from "../store/slices/contactSlice";
+import { useEffect } from "react";
+import { typography } from "../styles/typography";
 
 const BLUE = "rgba(0, 105, 204, 1)";
 
 export default function ContactUs() {
-  const dispatch = useDispatch()
-  const { formData, errors, isSubmitting, submitStatus, submitMessage } = useSelector((state) => state.contact)
+  const dispatch = useDispatch();
+  const { formData, errors, isSubmitting, submitStatus, submitMessage } =
+    useSelector((state) => state.contact);
 
   const handleFieldChange = (field) => (event) => {
-    dispatch(updateField({ field, value: event.target.value }))
-  }
+    dispatch(updateField({ field, value: event.target.value }));
+  };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    debugger
+    event.preventDefault();
+    debugger;
     // Basic validation
-    const newErrors = {}
-    if (!formData.firstName.trim()) newErrors.firstName = 'الاسم الأول مطلوب'
-    if (!formData.lastName.trim()) newErrors.lastName = 'الاسم الآخر مطلوب'
-    if (!formData.email.trim()) newErrors.email = 'البريد الإلكتروني مطلوب'
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'البريد الإلكتروني غير صحيح'
-    if (!formData.phone.trim()) newErrors.phone = 'رقم الهاتف مطلوب'
-    if (!formData.message.trim()) newErrors.message = 'الرسالة مطلوبة'
+    const newErrors = {};
+    if (!formData.firstName.trim()) newErrors.firstName = "الاسم الأول مطلوب";
+    if (!formData.lastName.trim()) newErrors.lastName = "الاسم الآخر مطلوب";
+    if (!formData.email.trim()) newErrors.email = "البريد الإلكتروني مطلوب";
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "البريد الإلكتروني غير صحيح";
+    if (!formData.phone.trim()) newErrors.phone = "رقم الهاتف مطلوب";
+    if (!formData.message.trim()) newErrors.message = "الرسالة مطلوبة";
 
     if (Object.keys(newErrors).length > 0) {
       // Handle validation errors
-      return
+      return;
     }
-debugger
-    dispatch(submitContactForm(formData))
-  }
+    debugger;
+    dispatch(submitContactForm(formData));
+  };
 
   // Clear success message after 5 seconds
   useEffect(() => {
-    if (submitStatus === 'success') {
+    if (submitStatus === "success") {
       const timer = setTimeout(() => {
-        dispatch(resetSubmitStatus())
-      }, 5000)
-      return () => clearTimeout(timer)
+        dispatch(resetSubmitStatus());
+      }, 5000);
+      return () => clearTimeout(timer);
     }
-  }, [submitStatus, dispatch])
+  }, [submitStatus, dispatch]);
 
   return (
     <Box sx={{ py: 8, backgroundColor: "#FFFFFF" }}>
@@ -87,7 +95,10 @@ debugger
               }}
             >
               <Box sx={{ textAlign: "right", mb: 3 }}>
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, fontSize: "1.5rem" }}>
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 700, mb: 1, fontSize: "1.5rem" }}
+                >
                   نموذج التواصل
                 </Typography>
                 <Typography variant="body2" sx={{ opacity: 0.9 }}>
@@ -96,18 +107,22 @@ debugger
               </Box>
 
               {/* Success/Error Messages */}
-              {submitStatus === 'success' && (
-                <Alert severity="success" sx={{ mb: 2, textAlign: 'right' }}>
+              {submitStatus === "success" && (
+                <Alert severity="success" sx={{ mb: 2, textAlign: "right" }}>
                   {submitMessage}
                 </Alert>
               )}
-              {submitStatus === 'error' && (
-                <Alert severity="error" sx={{ mb: 2, textAlign: 'right' }}>
+              {submitStatus === "error" && (
+                <Alert severity="error" sx={{ mb: 2, textAlign: "right" }}>
                   {submitMessage}
                 </Alert>
               )}
 
-              <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+              >
                 <Box sx={{ display: "flex", gap: 2 }}>
                   <Box sx={{ flex: 1 }}>
                     <Typography variant="body2" sx={{ mb: 1, color: "#fff" }}>
@@ -118,7 +133,7 @@ debugger
                       size="small"
                       placeholder="ادخل الاسم الأول"
                       value={formData.firstName}
-                      onChange={handleFieldChange('firstName')}
+                      onChange={handleFieldChange("firstName")}
                       error={!!errors.firstName}
                       helperText={errors.firstName}
                       InputProps={{
@@ -126,7 +141,9 @@ debugger
                           backgroundColor: "#fff",
                           borderRadius: 1,
                           "& .MuiOutlinedInput-notchedOutline": {
-                            borderColor: errors.firstName ? "#f44336" : "#e0e0e0",
+                            borderColor: errors.firstName
+                              ? "#f44336"
+                              : "#e0e0e0",
                           },
                           "& input": { textAlign: "right" },
                           "& input::placeholder": { textAlign: "right" },
@@ -143,7 +160,7 @@ debugger
                       size="small"
                       placeholder="ادخل الاسم الآخر"
                       value={formData.lastName}
-                      onChange={handleFieldChange('lastName')}
+                      onChange={handleFieldChange("lastName")}
                       error={!!errors.lastName}
                       helperText={errors.lastName}
                       InputProps={{
@@ -151,7 +168,9 @@ debugger
                           backgroundColor: "#fff",
                           borderRadius: 1,
                           "& .MuiOutlinedInput-notchedOutline": {
-                            borderColor: errors.lastName ? "#f44336" : "#e0e0e0",
+                            borderColor: errors.lastName
+                              ? "#f44336"
+                              : "#e0e0e0",
                           },
                           "& input": { textAlign: "right" },
                           "& input::placeholder": { textAlign: "right" },
@@ -171,7 +190,7 @@ debugger
                       size="small"
                       placeholder="ادخل عنوان البريد الإلكتروني"
                       value={formData.email}
-                      onChange={handleFieldChange('email')}
+                      onChange={handleFieldChange("email")}
                       error={!!errors.email}
                       helperText={errors.email}
                       InputProps={{
@@ -196,7 +215,7 @@ debugger
                       size="small"
                       placeholder="ادخل رقم الهاتف المحمول"
                       value={formData.phone}
-                      onChange={handleFieldChange('phone')}
+                      onChange={handleFieldChange("phone")}
                       error={!!errors.phone}
                       helperText={errors.phone}
                       InputProps={{
@@ -224,7 +243,7 @@ debugger
                     rows={4}
                     placeholder="...اكتب رسالتك هنا"
                     value={formData.message}
-                    onChange={handleFieldChange('message')}
+                    onChange={handleFieldChange("message")}
                     error={!!errors.message}
                     helperText={errors.message}
                     InputProps={{
@@ -241,7 +260,7 @@ debugger
                   />
                 </Box>
 
-                <Box sx={{ mt: 2 ,textAlign: "left"}}>
+                <Box sx={{ mt: 2, textAlign: "left" }}>
                   <Button
                     type="submit"
                     variant="contained"
@@ -250,14 +269,13 @@ debugger
                     sx={{
                       backgroundColor: "rgba(64, 181, 173, 1)",
                       transition: "all 0.3s ease",
-                      "&:hover": { 
+                      "&:hover": {
                         backgroundColor: "#1f9a55",
-                        transform: "scale(1.02)"
+                        transform: "scale(1.02)",
                       },
-                      p:"9px 35px",
+                      p: "9px 35px",
                       borderRadius: 1,
                       width: "fit-content",
-                      
                     }}
                   >
                     {isSubmitting ? (
@@ -266,7 +284,7 @@ debugger
                         <Typography>جاري الإرسال...</Typography>
                       </Stack>
                     ) : (
-                      'إرسال'
+                      "إرسال"
                     )}
                   </Button>
                 </Box>
@@ -292,32 +310,34 @@ debugger
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   <Box
                     sx={{
-                      width: "6px",
-                      height: "6px",
+                      width: "5px",
+                      height: "5px",
                       backgroundColor: "#146BA6",
                       borderRadius: "50%",
+                      //   mr: 0.75,
                     }}
                   />
                   <Box
                     sx={{
-                      height: "2px",
+                      height: "1px",
                       width: "36px",
                       backgroundColor: "#146BA6",
                       borderRadius: "4px",
                     }}
                   />
                 </Box>
-                <Typography
-                  variant="overline"
-                  sx={{ color: BLUE, fontWeight: 600, fontSize:"0.80rem" }}
-                >
+                <Typography variant="overline" sx={{ ...typography.title }}>
                   تواصل معنا
                 </Typography>
               </Stack>
 
               <Typography
                 variant="h5"
-                sx={{ fontWeight: 800, mb: 2, textAlign: "right", fontSize: "1.5rem" }}
+                sx={{
+                  ...typography.subTitle,
+                  mb: 2,
+                  textAlign: "right",
+                }}
               >
                 تواصلك معنا أول خطوات النجاح
               </Typography>

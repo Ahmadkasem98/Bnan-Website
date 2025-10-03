@@ -1,11 +1,5 @@
 import { AppBar, Toolbar, Typography, Stack, Button, Link, IconButton } from '@mui/material'
-import YouTubeIcon from '@mui/icons-material/YouTube'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk'
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
+import { LinkedInIconCustom, InstagramIconCustom, XIconCustom, FacebookIconCustom, YouTubeIconCustom, MailIcon, PhoneIcon } from '../components/AllIcons'
 import UserSettings from '../components/UserSettings'
 import LanguageSwitcher from '../components/LanguageSwitcher'
 import DarkModeToggle from '../components/DarkModeToggle'
@@ -20,30 +14,30 @@ export default function TopBar() {
           {/* Left side: social icons */}
           <Stack direction="row" spacing={0.5} className="items-center">
             <IconButton size="small" color="inherit" aria-label="YouTube" className="!text-white hover:!bg-white/10" sx={{ p: 0.5 }}>
-              <YouTubeIcon sx={{ fontSize: 20 }} />
+              <YouTubeIconCustom />
             </IconButton>
             <IconButton size="small" color="inherit" aria-label="Instagram" className="!text-white hover:!bg-white/10" sx={{ p: 0.5 }}>
-              <InstagramIcon sx={{ fontSize: 20 }} />
+              <InstagramIconCustom />
             </IconButton>
             <IconButton size="small" color="inherit" aria-label="X" className="!text-white hover:!bg-white/10" sx={{ p: 0.5 }}>
-              <TwitterIcon sx={{ fontSize: 20 }} />
+              <XIconCustom />
             </IconButton>
             <IconButton size="small" color="inherit" aria-label="Facebook" className="!text-white hover:!bg-white/10" sx={{ p: 0.5 }}>
-              <FacebookIcon sx={{ fontSize: 20 }} />
+              <FacebookIconCustom />
             </IconButton>
             <IconButton size="small" color="inherit" aria-label="LinkedIn" className="!text-white hover:!bg-white/10" sx={{ p: 0.5 }}>
-              <LinkedInIcon sx={{ fontSize: 20 }} />
+              <LinkedInIconCustom />
             </IconButton>
           </Stack>
 
           {/* Right side: phone, email and settings */}
           <Stack direction="row" spacing={3} className="text-sm items-center">
             <Stack direction="row" spacing={1} className="items-center">
-              <PhoneInTalkIcon sx={{ fontSize: 20 }} />
+              <PhoneIcon />
               <Typography variant="body2">+966 000 000 000</Typography>
             </Stack>
             <Stack direction="row" spacing={1} className="items-center">
-              <EmailOutlinedIcon sx={{ fontSize: 20 }} />
+              <MailIcon />
               <Link href="#" color="inherit" underline="hover">bnan@gmail.com</Link>
             </Stack>
             {/* <LanguageSwitcher />

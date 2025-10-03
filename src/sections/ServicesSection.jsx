@@ -11,6 +11,7 @@ import { VideoLessonIcon, EducationalGamesIcon, TestsChallengesIcon } from "../c
 import s1Image from "../assets/s1.jpg";
 import s2Image from "../assets/s2.jpg";
 import s3Image from "../assets/s3.jpg";
+import { typography } from "../styles/typography";
 
 const cards = [
   { title: "اختبارات وتحديات", icon: <TestsChallengesIcon size={44} />, image: s1Image },
@@ -31,8 +32,8 @@ export default function ServicesSection() {
           <Box sx={{ display: "flex", alignItems: "center" ,marginTop:5 }}>
             <Box 
               sx={{ 
-                width: "6px", 
-                height: "6px", 
+                width: "5px",
+                    height: "5px",
                 backgroundColor: "#146BA6", 
                 borderRadius: "50%",
                 ml: 0.5
@@ -40,7 +41,7 @@ export default function ServicesSection() {
             ></Box>
             <Box 
               sx={{ 
-                height: "2px", 
+                height: "1.3px",
                 width: "32px", 
                 backgroundColor: "#146BA6", 
                 borderRadius: "4px" 
@@ -49,7 +50,7 @@ export default function ServicesSection() {
           </Box>
           <Typography
             variant="overline"
-            sx={{ color: "#146BA6", fontWeight: 600 , fontSize:"0.80rem" }}
+            sx={{ ...typography.title }}
           >
             خدماتنا
           </Typography>
@@ -59,16 +60,15 @@ export default function ServicesSection() {
         <Stack spacing={1} sx={{ textAlign: "center", alignItems: "center", mb: 4 }}>
           <Typography
             variant="h4"
-            sx={{ fontWeight: 600, mb: 1, fontSize: "1.5rem" }}
+            sx={{ ...typography.subTitle, mb: 1, textAlign: "center" }}
           >
             ماذا تقدم بنان؟
           </Typography>
           <Typography
             variant="body2"
             sx={{ 
-              color: "#64748b", 
-              maxWidth: "600px", 
-              lineHeight: 1.6,
+              ...typography.description,
+              maxWidth: "600px",
               textAlign: "center"
             }}
           >

@@ -77,8 +77,10 @@ export default function Navbar() {
                     <Button
                       key={t.id}
                       color={isActive ? 'primary' : 'inherit'}
-                      className={isActive ? '!text-[#146BA6] !font-semibold' : '!text-slate-600 hover:!text-[#146BA6]'}
+                      className={isActive ? '!text-[#146BA6]' : '!text-slate-600 hover:!text-[#146BA6]'}
                       sx={{
+                        fontWeight: 400,
+                        fontSize: '14px',
                         ...(isActive ? { borderBottom: '2px solid #146BA6', borderRadius: 0, pb: 1 } : {}),
                         transition: "all 0.3s ease",
                         "&:hover": {

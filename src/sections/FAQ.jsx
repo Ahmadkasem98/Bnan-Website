@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import download1 from "../assets/download1.jpg";
+import { typography } from "../styles/typography";
 
 const faqs = [
   {
@@ -44,15 +45,15 @@ export default function FAQ() {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Box
               sx={{
-                width: 6,
-                height: 6,
+                width: "5px",
+                height: "5px",
                 backgroundColor: "#146BA6",
                 borderRadius: "50%",
               }}
             />
             <Box
               sx={{
-                height: "2px",
+                height: "1.3px",
                 width: 36,
                 backgroundColor: "#146BA6",
                 borderRadius: "4px",
@@ -61,14 +62,14 @@ export default function FAQ() {
           </Box>
           <Typography
             variant="overline"
-            sx={{ color: "#146BA6", fontWeight: 600, fontSize:"0.80rem" }}
+            sx={{ ...typography.title }}
           >
             الأسئلة الأكثر شيوعًا
           </Typography>
         </Stack>
         <Typography
           variant="h5"
-          sx={{ fontWeight: 800, textAlign: "center", mb: 8, fontSize: "1.5rem" }}
+          sx={{ ...typography.subTitle, textAlign: "center", mb: 8 }}
         >
           أسئلة متكررة، أجوبة واضحة
         </Typography>

@@ -15,6 +15,8 @@ import ChildCareIcon from "@mui/icons-material/ChildCare";
 import new1 from "../assets/new1.jpg";
 import new2 from "../assets/new2.jpg";
 import new3 from "../assets/new3.jpg";
+import { typography } from "../styles/typography";
+import { ArrowLeftIcon } from "../components/AllIcons";
 
 const items = [
   {
@@ -68,7 +70,11 @@ function Meta({ icon, text }) {
       >
         {icon}
       </Box>
-      <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700 }}>
+      <Typography
+        variant="caption"
+        color="text.secondary"
+        sx={{ fontWeight: 700 }}
+      >
         {value}
       </Typography>
       {unit && (
@@ -82,56 +88,152 @@ function Meta({ icon, text }) {
 
 export default function NewTracks() {
   return (
-    <Box sx={{ py: 8, backgroundColor: "rgba(230, 238, 247, 1)", mt: 5 }}>
+    <Box sx={{
+      py: 8,
+      backgroundColor: "rgba(230, 238, 247, 1)",
+      mt: 5,
+      width: '100vw',
+      ml: 'calc(50% - 50vw)',
+      mr: 'calc(50% - 50vw)'
+    }}>
       <Container maxWidth="lg">
         {/* Header */}
-        <Stack direction="row" spacing={1} sx={{ alignItems: "center", justifyContent: "center", mb: 1 }}>
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{ alignItems: "center", justifyContent: "center", mb: 1 }}
+        >
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box sx={{ width: 6, height: 6, backgroundColor: "#146BA6", borderRadius: "50%" }} />
-            <Box sx={{ height: "2px", width: 36, backgroundColor: "#146BA6", borderRadius: "4px" }} />
+            <Box
+              sx={{
+                width: "5px",
+                height: "5px",
+                backgroundColor: "#146BA6",
+                borderRadius: "50%",
+              }}
+            />
+            <Box
+              sx={{
+                height: "1.3px",
+                width: 36,
+                backgroundColor: "#146BA6",
+                borderRadius: "4px",
+              }}
+            />
           </Box>
-          <Typography variant="overline" sx={{ color: "#146BA6", fontWeight: 600 , fontSize:"0.80rem"}}>مسارات جديدة</Typography>
+          <Typography variant="overline" sx={{ ...typography.title }}>
+            مسارات جديدة
+          </Typography>
         </Stack>
-        <Typography variant="h5" sx={{ fontWeight: 800, textAlign: "center", mb: 4, fontSize: "1.5rem" }}>أحدث المسارات في بنان</Typography>
+        <Typography
+          variant="h5"
+          sx={{ ...typography.subTitle, textAlign: "center", mb: 4 }}
+        >
+          أحدث المسارات في بنان
+        </Typography>
 
         {/* Cards */}
         <Grid container spacing={3} justifyContent="center">
           {items.map((it) => (
             <Grid item xs={12} md={4} key={it.title}>
-              <Paper sx={{ 
-                overflow: "hidden", 
-                borderRadius: 2, 
-                backgroundColor: "rgba(223, 226, 229, 1)",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-5px)",
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
-                }
-              }} elevation={1}>
+              <Paper
+                sx={{
+                  overflow: "hidden",
+                  borderRadius: 2,
+                  backgroundColor: "rgba(223, 226, 229, 1)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-5px)",
+                    boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+                  },
+                }}
+                elevation={1}
+              >
                 <Box sx={{ position: "relative" }}>
-                  <img src={it.image} alt={it.title} style={{ width: "100%", height: 220, objectFit: "cover", display: "block" }} />
+                  <img
+                    src={it.image}
+                    alt={it.title}
+                    style={{
+                      width: "100%",
+                      height: 220,
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
                 </Box>
                 <Box sx={{ px: 2.5, py: 2, borderTop: "1px solid #E2E8F0" }}>
-                  <Stack direction="column" spacing={1} alignItems="end" sx={{ justifyContent: "space-between", mb: 1 }}>
-                    <Typography variant="subtitle2" sx={{ fontFamily: 'Montserrat Arabic, Tajawal, system-ui', fontWeight: 600, fontSize: '15px', lineHeight: 1.0, letterSpacing: 0, textAlign: 'right' }}>{it.title}</Typography>
-                    <Chip label="مبتدئ" size="small" sx={{ backgroundColor: "rgba(255, 127, 80, 0.2)", color: metaFg, fontWeight: 600, border: "1px solid rgba(255, 127, 80, 1)" }} />
+                  <Stack
+                    direction="column"
+                    spacing={1}
+                    alignItems="end"
+                    sx={{ justifyContent: "space-between", mb: 1 }}
+                  >
+                    <Typography
+                      variant="subtitle2"
+                      sx={{
+                        fontFamily: "Montserrat Arabic, Tajawal, system-ui",
+                        fontWeight: 600,
+                        fontSize: "15px",
+                        lineHeight: 1.0,
+                        letterSpacing: 0,
+                        textAlign: "right",
+                      }}
+                    >
+                      {it.title}
+                    </Typography>
+                    <Chip
+                      label="مبتدئ"
+                      size="small"
+                      sx={{
+                        backgroundColor: "rgba(255, 127, 80, 0.2)",
+                        color: metaFg,
+                        fontWeight: 600,
+                        border: "1px solid rgba(255, 127, 80, 1)",
+                      }}
+                    />
                   </Stack>
                   <Stack direction="row" spacing={2} sx={{ my: 1.5 }}>
-                    <Button fullWidth variant="contained" startIcon={<ArrowBackIosNewIcon sx={{ fontSize: 16 }} />} sx={{ 
-                      backgroundColor: "#146BA6", 
-                      py: 1.1, 
-                      borderRadius: "8px", 
-                      transition: "all 0.3s ease",
-                      "&:hover": { 
-                        backgroundColor: "#0f588a",
-                        transform: "scale(1.02)"
-                      } 
-                    }}>ابدأ التعلــم</Button>
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      startIcon={<ArrowLeftIcon sx={{ fontSize: 16 }} />}
+                      sx={{
+                        backgroundColor: "#146BA6",
+                        py: 1.1,
+                        borderRadius: "8px",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          backgroundColor: "#0f588a",
+                          transform: "scale(1.02)",
+                        },
+                      }}
+                    >
+                      ابدأ التعلــم
+                    </Button>
                   </Stack>
-                  <Stack direction="row" spacing={3} sx={{ justifyContent: "space-between", mt: 1.5 }}>
-                    <Meta icon={<AccessTimeIcon sx={{ fontSize: 14, color: metaFg }} />} text={it.meta.duration} />
-                    <Meta icon={<MenuBookIcon sx={{ fontSize: 14, color: metaFg }} />} text={it.meta.lessons} />
-                    <Meta icon={<ChildCareIcon sx={{ fontSize: 14, color: metaFg }} />} text={it.meta.age} />
+                  <Stack
+                    direction="row"
+                    spacing={3}
+                    sx={{ justifyContent: "space-between", mt: 1.5 }}
+                  >
+                    <Meta
+                      icon={
+                        <AccessTimeIcon sx={{ fontSize: 14, color: metaFg }} />
+                      }
+                      text={it.meta.duration}
+                    />
+                    <Meta
+                      icon={
+                        <MenuBookIcon sx={{ fontSize: 14, color: metaFg }} />
+                      }
+                      text={it.meta.lessons}
+                    />
+                    <Meta
+                      icon={
+                        <ChildCareIcon sx={{ fontSize: 14, color: metaFg }} />
+                      }
+                      text={it.meta.age}
+                    />
                   </Stack>
                 </Box>
               </Paper>
@@ -140,5 +242,5 @@ export default function NewTracks() {
         </Grid>
       </Container>
     </Box>
-  )
+  );
 }
